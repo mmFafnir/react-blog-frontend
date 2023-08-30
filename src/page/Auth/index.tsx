@@ -15,7 +15,6 @@ const Auth: FC = () => {
     const isAuth = useTypeSelector(selectAuth);
     const [login, setLogin] = useState<boolean>(true);
 
-    console.log(isAuth)
     if(isAuth) return <Navigate to={'/'} />
 
     return (

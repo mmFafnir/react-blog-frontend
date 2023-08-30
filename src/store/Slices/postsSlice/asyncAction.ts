@@ -15,7 +15,6 @@ const getPosts = async (params:TFilter) => {
     }
     url = url+`?limit=${limit}&page=${page}&search=${search}`;
     const {data} = await axios.get(url);
-    console.log(data)
     return data
 }
 
@@ -34,7 +33,6 @@ export const postPost = createAsyncThunk<TPost, IPostCreate>(
     'posts/postPost', 
     async (params) => {
         const { data } = await axios.post('/posts', params);
-        console.log(data)
         return  data
     }
 )
@@ -63,7 +61,6 @@ export const updatePost = createAsyncThunk<TPost, IUpdatePostParams>(
     'posts/updatePost',
     async (params) => {
         const {data} = await axios.patch(`/posts/${params.id}`, params.post);
-        console.log(data)
         return data
     }
 )

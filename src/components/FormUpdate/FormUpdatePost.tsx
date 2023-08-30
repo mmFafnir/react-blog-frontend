@@ -63,7 +63,6 @@ const FormUpdatePost:FC = () => {
         });
     }
 
-    console.log(statusElement)
 
     return (
         <div className='form-update'>

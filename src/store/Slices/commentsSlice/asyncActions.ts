@@ -12,7 +12,6 @@ export const fetchComments = createAsyncThunk<Omit<IStateComments, 'status'>, IP
         const {id, limit, page} = params
         try {
             const data = await axios.get(`/posts/${id}/comments?limit=${limit}&page=${page}`);
-            console.log(data)
             return data.data;
 
         } catch (error) {
@@ -59,7 +58,6 @@ export const postAnswer = createAsyncThunk<TComment, IParamsPostAnswer>(
     async (params) => {
         try {
             const {data} = await axios.post(`/posts/comments/answers/${params.id}`, params.answer);
-            console.log(data)
             return data
 
         } catch (error) {

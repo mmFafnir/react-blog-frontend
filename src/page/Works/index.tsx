@@ -31,7 +31,6 @@ const Works:FC = () => {
     const [page, setPage] = useState<number>(1);
     const [isLoading, setIsLoading] = useState<boolean>(true)
     
-    console.log(pages !== page && works.length !== 0)
     useEffect(() => {
         if(inView) {
             setPage(prev => prev+1)
@@ -56,7 +55,6 @@ const Works:FC = () => {
         });
     }, [search])
 
-    console.log(search)
 
     useEffect(() => {        
         dispatch(clearWorksState());

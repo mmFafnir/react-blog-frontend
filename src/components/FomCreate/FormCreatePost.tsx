@@ -60,7 +60,7 @@ const FromCreatePost:FC = () => {
         if(refInputImg.current && refInputImg.current.files && img ){
             setIsLoadingImg(true)
             try {
-                await axios.delete('upload/' + img.replace('/uploads/', ''));
+                await axios.delete('upload/' + img.replace('https://react-blog-backend-lgkv.onrender.com/uploads/', ''));
                 refInputImg.current.files = null;
                 if(!isNew) {
                     setImg(null);
