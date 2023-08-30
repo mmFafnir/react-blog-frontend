@@ -32,6 +32,7 @@ export const fetchPostByLimit = createAsyncThunk<IDataFetchPost, TFilter>(
 export const postPost = createAsyncThunk<TPost, IPostCreate>(
     'posts/postPost', 
     async (params) => {
+        console.log(params)
         const { data } = await axios.post('/posts', params);
         return  data
     }

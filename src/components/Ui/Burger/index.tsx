@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 import './style.css'
 import { Link, useLocation } from 'react-router-dom';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
 import { selectAuth } from '../../../store/Slices/userAuthSlice/selectors';
+
+import img from '../../Person/img.jpg'
 
 const Burger = () => {
     const location = useLocation();
@@ -14,6 +16,9 @@ const Burger = () => {
     const [isActive, setIsActive] = useState<boolean>(false);
 
 
+    useEffect(() => {
+        setIsActive(false)
+    }, [location])
     return (
         <div className='burger'>
             <div className={`burger-icon ${isActive ? 'active' : ''}`} onClick={() => setIsActive(prev => !prev)}> 
@@ -22,17 +27,17 @@ const Burger = () => {
             <div className={`burger-menu ${isActive ? 'active' : ''}`}>
                 <div className="aside-content">
                     <div className="aside_bg">
-                        <img src="	https://mmfafnir.github.io/Blob_Front-end/img/Rectangle%201.jpg" alt="#" />
+                        <img src="https://mmfafnir.github.io/Blob_Front-end/img/Rectangle%201.jpg" alt="#" />
                     </div>
                     {
                         isAuth ? (
                             <div className="aside-person__block">
                                 <div className="aside-person__img">
-                                    <img src="img/gde-i-kak-vyrashivat-talanty.png" alt="#" />
+                                    <img src={data?.avatarUrl ? data?.avatarUrl : img} alt="#" />
                                 </div>
                                 <div className="aside-person__title">
-                                    <h2>Фамилия Имя</h2>
-                                    <p className="sub_t-tle"> блог front-end разработчика </p>
+                                    <h2>{data?.fullName}</h2>
+                                    <p className="sub_t-tle">{data?.professions}</p>
                                 </div>
                             </div>
                         ) : (
@@ -66,7 +71,7 @@ const Burger = () => {
                             isAuth ? (
                                 <div className="aside-person__btn aside-person__btn-mg"> 
                                     <Link className="my_work aside__btn person__btn" to="/works">Мои работы</Link>
-                                    <Link className="write_me aside__btn person__btn" to={`${process.env.REACT_APP_API_URL}/user/${data?._id}`}>Мой профиль</Link>
+                                    <Link className="write_me aside__btn person__btn" to={`/user/${data?._id}`}>Мой профиль</Link>
                                 </div>
                             ) : (
                                 <></>

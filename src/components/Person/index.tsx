@@ -18,7 +18,7 @@ const Person:FC = () => {
               <img src={data?.avatarUrl ? data.avatarUrl : img} alt={data?.fullName} />
           </div>
           <div className="person__title">
-            <h2><Link to={`${process.env.REACT_APP_API_URL}/user/${data?._id}`}>{data?.fullName}</Link></h2>
+            <h2><Link to={`/user/${data?._id}`}>{data?.fullName}</Link></h2>
             <p className="sub_title">{data?.professions}</p>
           </div>
           {/* <div className="person__social social">

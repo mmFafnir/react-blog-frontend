@@ -77,14 +77,18 @@ const FromCreatePost:FC = () => {
 
     const handlePostSave = () => {
         if(text.trim() === '' || title.trim() === '') return;
-        setIsLoading(true)
-        const post:IPostCreate = {
+        setIsLoading(true);
+        console.log(user)
+        let post:IPostCreate = {
             title,
             text,
             tags,
-            imageUrl: img,
             userId: user!._id
         }
+        if(img) {
+            post['imageUrl'] = img
+        }
+        
         dispatch(postPost(post)).then(() => {
             setIsLoading(false);
             handleClearState();
@@ -94,7 +98,6 @@ const FromCreatePost:FC = () => {
         })
     }
 
-    console.log(img)
     const handleClearState = () => {
         setTitle('');
         setImg('');
