@@ -1,0 +1,23 @@
+body {
+  position: relative;
+  z-index: 1000;
+  background: #181818;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 20px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body.lock{
+  overflow: hidden;
+}
+.wrapper{
+  z-index: 201;
+  color: #fff;
+  background: #181818;
+  position: relative;
+  height: 100%;
+  font-family: Roboto,sans-serif;
+}

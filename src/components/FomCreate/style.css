@@ -1,0 +1,191 @@
+.add-post{
+    background-color: #121212;
+    -webkit-box-shadow: 0 15px 25px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.45);
+    border-radius: 5px;
+}
+.add-post__img{
+    padding: 20px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+.add-post__img-delete{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: transparent;
+}
+.add-post__img-delete svg{
+    width: 100%;
+    height: 100%;
+}
+.add-post__img-delete svg path {
+    fill: red;
+}
+.add-post__img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.add-post_form {
+    position: relative;
+    width: 100%;
+    /* display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; */
+}
+.add-post__title{
+    display: flex;
+}
+.add-post__title input {
+    position: relative;
+    background-color: #121212;
+    resize: none;
+    width: calc(100% - 123px);
+    height: 74px;
+    padding: 28px 28px 28px 28px;
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+    overflow: hidden;
+    font-family: inherit;
+}
+.add-post__text ::-webkit-input-placeholder {
+    font-size: 15px;
+    line-height: 18px;
+}
+.add-post__text ::-moz-placeholder {
+    font-size: 15px;
+    line-height: 18px;
+}
+.add-post__text :-ms-input-placeholder {
+    font-size: 15px;
+    line-height: 18px;
+}
+.add-post__text ::-ms-input-placeholder {
+    font-size: 15px;
+    line-height: 18px;
+}
+.add-post__text ::placeholder {
+    font-size: 15px;
+    line-height: 18px;
+}
+.add-post__action {
+    margin-right: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.add-post__file {
+    width: 44px;
+    height: 44px;
+    background-color: #ebebeb;
+    position: relative;
+    cursor: pointer;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-right: 15px;
+    -webkit-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+.add-post__file input {
+    display: none;
+}
+.add-post__file:hover {
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: rgba(21, 20, 20, 0.87);
+}
+.add-post__file:hover .fa-camera {
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    color: #fffaf0;
+}
+.fa-camera {
+    -webkit-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    color: #6e757c;
+    font-size: 22px;
+}
+.send_post {
+    width: 44px;
+    height: 44px;
+    background: #3137c9;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+.send_post:hover {
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: #fafad2;
+}
+.send_post:hover .fa-location-arrow {
+    color: #000;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.fa-location-arrow {
+    -webkit-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    font-size: 17px;
+    color: #fff;
+}
+
+.add-post__tags{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 18px 20px 18px;
+}
+
+.add-post__tags > p{
+    margin: 0px 10px 10px 10px;
+}
+
+.add-post__input{
+    width: 100%;
+    height: 30px;
+    background-color: #151515;
+    padding: 0px 29px;
+}
+.add-post__input input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    color: #fff;
+}

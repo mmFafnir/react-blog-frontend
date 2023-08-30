@@ -1,0 +1,113 @@
+.card-work {
+    background: #202020;
+    -webkit-box-shadow: 0 15px 25px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 5px;
+    margin: 30px 0;
+    overflow: hidden;
+}
+.card-work__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.card-work__img {
+    width: 50%;
+}
+.card-work__content {
+    flex:  1 1 auto;
+    padding: 28px 25px 25px 25px;
+    display: flex;
+    flex-direction: column;
+
+}
+.card-work__content h2 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #fff;
+}
+.card-work__text {
+    margin: 30px 0;
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 27px;
+    color: #d2d2d2;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+.card-work__text > p {
+    flex: 1 1 auto;
+}
+.card-work__tags {
+    margin: 30px 0;
+    margin-bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-work__tags p {
+    font-size: 11px;
+    line-height: 13px;
+    color: #fff;
+    background: #ea8c1e;
+    border-radius: 3px;
+    padding: 4px 9px;
+    margin: 5px;
+}
+/* 
+.card-work__tags p + p {
+    margin-left: 10px;
+} */
+
+
+.link-to-site {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+.link-to-site a {
+    padding: 8px 13px 9px 14px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #fff;
+    background-color: #3137c9;
+    -webkit-box-shadow: 0 4px 15px -7px rgba(48, 55, 201, 0.3);
+    box-shadow: 0 4px 15px -7px rgba(48, 55, 201, 0.3);
+    border-radius: 5px;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+.link-to-site a:hover {
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: red;
+}
+
+.card-work__delete{
+    background-color: #ed3024;
+    height: 30px;
+    color: #fff;
+    width: 100px;
+    margin-left: auto;
+    border: solid 1px #ed3024;
+    transition-duration: 0.3s;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.card-work__delete:hover{
+    background-color: transparent;
+    color: #ed3024;
+}
+.card-work__delete.loading{
+    pointer-events: none;
+}

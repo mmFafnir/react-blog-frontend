@@ -1,0 +1,35 @@
+
+h2{
+    color: #fff;
+}
+.pd_17-25_{
+    padding: 17px 25px;
+}
+
+
+
+.App.no-auth main {
+    margin-left: 0px !important;
+    width: 100% !important;
+}
+.App.no-auth .header {
+    width: calc(100% - 0px) !important;
+    left: 0 !important;
+}
+
+
+.anim-show{
+    opacity: 0;
+    transition-duration: 0.3s;
+}
+
+.anim-show.show {
+    opacity: 1;
+}
+.anim-left{
+    transform: translateX(-100%);
+    transition-duration: 0.3s;
+}
+.anim-left.show{
+    transform: translateX(0);
+}

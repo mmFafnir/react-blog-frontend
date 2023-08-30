@@ -1,0 +1,71 @@
+
+
+
+.form-update h2{
+    font-weight: 500;
+    margin-bottom: 30px;
+    font-size: 23px;
+}
+.form-update__img {
+    margin-bottom: 30px;
+}
+.form-update__img img{
+    margin-bottom: 20px;
+}
+.form-update-user .form-update__img img{
+    width: 50%;
+    height: 50%;
+    display: block;
+}
+.form-update__img label{
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom: 1px #107eff solid;
+    color: #107eff;
+    transition-duration: 0.3s;
+}
+.form-update__img label:hover{
+    color: aqua;
+}
+
+.form-update__img input {
+    display: none;
+}
+
+.form-update .style-form > p{
+    font-size: 16px;
+    margin-top: 20px;
+}
+.form-update .form-input {
+    margin: 15px 0px;
+} 
+.form-update .my-editor{
+    padding: 0;
+    margin: 15px 0px;
+    border-bottom: 1px #3f3f3f solid;
+    padding-bottom: 10px;
+    font-size: 14px;
+    transition-duration: 0.3s;
+}
+
+.form-update .my-editor.focus {
+    border-color: red;
+}
+
+.form-update .form-tags__input {
+    margin: 0;
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+.form-update .form-tags__wrapper {
+    padding: 0;
+}
+.form-update .form-tags__input input {
+    font-size: 14px;
+}
+
+.form-update .btn-form {
+    margin-top: 50px;
+    margin-left: auto;
+    display: block;
+}

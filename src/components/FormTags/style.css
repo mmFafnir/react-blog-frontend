@@ -1,0 +1,151 @@
+
+
+.form-tags__wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0px 28px 20px 28px;
+}
+.form-tags__input{
+    flex: 1 1 auto;
+    margin: 0px 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+}
+.form-tags__input button {
+    background: transparent;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: solid 1px #fff;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    color: #fff;
+    margin-left: 10px;
+    transition-duration: 0.3s;
+}
+.form-tags__input button:hover{
+    background: #fff;
+    color: #000;
+}
+
+.form-tags__input input{
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid #616161;
+    color: #fff;
+    padding: 9px 0px;
+    font-size: 18px;
+    transition-duration: 0.3s;
+}
+
+.form-tags__input input:focus {
+    border-color: red;
+}
+
+.form-tags__recommend{
+    margin-top: 30px;
+}
+.form-tags__recommend p{
+    font-size: 18px;
+    margin: 0 10px;
+}
+.form-tags__list{
+    max-height: 400px;
+    overflow: auto;
+    padding: 1px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+}
+
+.form-tags__tag{
+    display: flex;
+    align-items: center;
+    margin: 0px 10px ;
+    margin-top: 20px;   
+}
+
+.form-tags__tag label{
+    display: flex;
+    align-items: center;
+}
+
+.form-tags__tag label span{
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-tags__tag label .checkbox{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: solid 1px #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+}
+.form-tags__tag label .checkbox::before{
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0;
+    transition-duration: 0.3s;
+}
+
+.form-tags__tag input:checked + label .checkbox::before{
+    opacity: 1;
+}
+
+.form-tags__tag input{
+    display: none;
+}
+
+.post-tag{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin: 0px 10px;
+    margin-top: 10px;
+}
+
+.post-tag button {
+    display: inline-block;
+    width: 6px;
+    flex: 0 0 6px;
+    height: 6px;
+    background: #c4c4c4;
+    border-radius: 50%;
+    margin-right: 7px;
+    transition-duration: 0.3s;
+}
+
+.post-tag button:hover{
+    background: red;
+}
+
+.form-tags__save {
+    padding: 10px 30px;
+    margin-top: 30px;
+    display: inline-block;
+    width: auto;
+    margin-left: auto;
+    background-color: #3137c9;
+    font-weight: 700;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+.form-tags__save:hover{
+    background-color: red;
+}

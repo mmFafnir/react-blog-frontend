@@ -1,0 +1,31 @@
+
+
+.reg-link-body {
+    margin: 30px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.reg-link {
+    font-size: 12px;
+    line-height: 14px;
+    color: #fff;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: transparent;
+}
+.reg-link:hover {
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    color: red;
+}
+.reg-link + .reg-link {
+    margin-left: 10px;
+}

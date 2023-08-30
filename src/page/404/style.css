@@ -1,0 +1,40 @@
+
+
+.not-found > p {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.tv{
+    position: relative;
+    width: 100%;
+}
+.tv .tv-img{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+
+}
+.tv .img-404 {
+    position: absolute;
+    left: 14.6%;
+    top: 10%;
+    width: 56%;
+    height: 72%;
+}
+
+.not-found__link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.not-found a {
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    width: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+
+}

@@ -1,0 +1,23 @@
+
+main {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+    background: #181818;
+    height: 100%;
+    padding: 100px 20px 180px 20px;
+}
+.main__wrapper {
+    position: relative;
+    background-color: transparent;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.page-title--mg {
+    margin-bottom: 30px;
+}
+
+.title-page {
+    font-size: 21px;
+    line-height: 21px;
+    color: #fff;
+}
