@@ -65,7 +65,7 @@ const User:FC = () => {
                 <div className="user__header">
                     <div>
                         <div className="user__img">
-                            <img src={user.avatarUrl ? `http://localhost:4444${user.avatarUrl}` : img} alt={user.fullName} />
+                            <img src={user.avatarUrl ? user.avatarUrl : img} alt={user.fullName} />
                         </div>
                     </div>
                     <div>

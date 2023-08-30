@@ -81,7 +81,7 @@ const FormUpdateUser:FC = () => {
                             imgLoading ? (
                                 <img src={loadingGif} alt='loading' />
                             ) : (
-                                <img src={img ?`http://localhost:4444${img}` : imgDefault}/>
+                                <img src={img ? img: imgDefault}/>
                             )
                         }
                         <label>

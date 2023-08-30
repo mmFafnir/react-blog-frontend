@@ -76,7 +76,7 @@ const FormUpdatePost:FC = () => {
                     classes={[]}
                 >
                     <div className="form-update__img">
-                        {img ? <img src={`http://localhost:4444${img}`}/> : <></>}
+                        {img ? <img src={img}/> : <></>}
                         <label>
                             <input 
                                 ref={refInputImg} 

@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import { useEffect, FC } from "react";
 import {Routes, Route} from "react-router-dom";
 import { useTypeDispatch } from "./hooks/useTypeDispatch";
 import { useTypeSelector } from "./hooks/useTypeSelector";
@@ -19,7 +19,7 @@ import './assets/css/snippets.css';
 import './assets/css/adaptive.css';
 import NotFound from "./page/404/404";
 
-function App() {
+const App:FC = () => {
 
   const dispatch = useTypeDispatch();
 

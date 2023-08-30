@@ -15,10 +15,10 @@ const Person:FC = () => {
     return (
         <div className="person_block">
           <div className="person__img">
-              <img src={data?.avatarUrl ? `http://localhost:4444${data.avatarUrl}` : img} alt={data?.fullName} />
+              <img src={data?.avatarUrl ? data.avatarUrl : img} alt={data?.fullName} />
           </div>
           <div className="person__title">
-            <h2><Link to={`http://localhost:3000/user/${data?._id}`}>{data?.fullName}</Link></h2>
+            <h2><Link to={`${process.env.REACT_APP_API_URL}/user/${data?._id}`}>{data?.fullName}</Link></h2>
             <p className="sub_title">{data?.professions}</p>
           </div>
           {/* <div className="person__social social">
