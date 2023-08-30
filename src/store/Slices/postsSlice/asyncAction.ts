@@ -15,7 +15,7 @@ const getPosts = async (params:TFilter) => {
     }
     url = url+`?limit=${limit}&page=${page}&search=${search}`;
     const {data} = await axios.get(url);
-
+    console.log(data)
     return data
 }
 
