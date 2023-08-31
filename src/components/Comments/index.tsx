@@ -11,12 +11,19 @@ import Textarea from '../Ui/Form/Textarea';
 
 import img from '../Person/img.jpg';
 import './style.css';
+import { selectAuth } from '../../store/Slices/userAuthSlice/selectors';
+import { useNavigate } from 'react-router-dom';
+import { getDate } from '../../assets/scripts/getDate';
 
 interface IProps {
     id: string
 }
 
 const Comments:FC<IProps> = ({id}) => {
+    const isAuth = useTypeSelector(selectAuth);
+
+    const navigate = useNavigate();
+
     const {status, comments, pages} = useTypeSelector(state => state.comments);
     const dispatch = useTypeDispatch();
 
@@ -64,7 +71,11 @@ const Comments:FC<IProps> = ({id}) => {
     }
 
     const submitHandler = () => {
-        if(text.trim().length === 0) return 
+
+        if(!isAuth) {
+            navigate('/auth')
+        }
+        if(text.trim().length === 0) return;
         if(answerComment) {
             dispatch(postAnswer({
                 id: answerComment.id,
@@ -134,7 +145,7 @@ const Comments:FC<IProps> = ({id}) => {
                                 </div>
                                 <div className="persone_name">
                                 <div className="name">{comment.user.fullName}</div>
-                                <time dateTime="12.04.2002 19:00">1 неделю назад</time>
+                                <time dateTime="12.04.2002 19:00">{getDate(comment.createdAt)}</time>
                                 </div>
                             </div>
                             <div className="comments__text">{comment.text}</div>
@@ -170,7 +181,7 @@ const Comments:FC<IProps> = ({id}) => {
                                                     <div className="persone_name">
                                                     <div className="name">{answer.user.fullName}</div>
                                                     <p>Ответ на комментарий: {answer.userAnswer}</p>
-                                                    <time dateTime="12.04.2002 19:00">1 неделю назад</time>
+                                                    <time dateTime="12.04.2002 19:00">{getDate(answer.createdAt)}</time>
                                                     </div>
                                                 </div>
                                                 <div className="comments__text">{answer.text}</div>
