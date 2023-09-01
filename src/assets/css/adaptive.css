@@ -175,7 +175,8 @@
     .aside-links__list {
         line-height: 2;
     }
-    .aside__link a {
+    .aside__link a, 
+    .aside__link button {
         color: #fff;
         font-weight: 300;
         font-family: inherit;

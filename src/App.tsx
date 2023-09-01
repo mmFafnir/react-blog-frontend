@@ -1,10 +1,10 @@
 
-import { useEffect, FC } from "react";
-import {Routes, Route} from "react-router-dom";
+import { FC, useEffect, useState } from "react";
+import {Routes, Route, useLocation} from "react-router-dom";
 import { useTypeDispatch } from "./hooks/useTypeDispatch";
 import { useTypeSelector } from "./hooks/useTypeSelector";
 import { getUserAuthMe } from "./store/Slices/userAuthSlice/asyncActions";
-import { selectAuth } from "./store/Slices/userAuthSlice/selectors";
+import { selectAuth, selectUserId } from "./store/Slices/userAuthSlice/selectors";
 
 import Main from "./page/Main";
 import MainLayout from "./Layout/MainLayout";
@@ -13,21 +13,42 @@ import Auth from "./page/Auth";
 import Posts from "./page/Posts";
 import PostElement from "./page/PostElement";
 import User from "./page/User";
+import NotFound from "./page/404/404";
 
 import './assets/css/App.css';
 import './assets/css/snippets.css';
 import './assets/css/adaptive.css';
-import NotFound from "./page/404/404";
+import { deleteTags } from "./store/Slices/tagsSlice";
 
 const App:FC = () => {
 
+  const isAuth = useTypeSelector(selectAuth);
   const dispatch = useTypeDispatch();
 
-  const isAuth = useTypeSelector(selectAuth);
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [hide, setHide] = useState<boolean>(false);
+  
+  const location = useLocation();
 
   useEffect(() => {
-    dispatch(getUserAuthMe());  
+    dispatch(getUserAuthMe()).then(res => {
+      setHide(true)
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 250)
+    })  
   }, [])
+
+  useEffect(() => {
+    dispatch(deleteTags())
+  }, [location])
+
+  if(isLoading) return (
+    <div className={`loading-blog ${hide ? 'hide' : ''}`}>
+      <span className="loader-blog"></span>
+      <span className="loader-blog-light"></span>
+    </div>
+  )
 
   return (
       <Routes>

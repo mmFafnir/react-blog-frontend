@@ -27,6 +27,7 @@ const FromCreateWork:FC = () => {
     const dispatch = useTypeDispatch();
 
     const [isLoadingImg, setIsLoadingImg] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
     const [title, setTitle] = useState<string>('')
     const [img, setImg] = useState<string|null>(null);
@@ -76,7 +77,8 @@ const FromCreateWork:FC = () => {
 
     const handlePostSave = () => {
         if(text.trim() === '' && title.trim() === '') return;
-        
+        if(img === '') return alert('Добавьте фотографию')
+        setIsLoading(true)
         const work:IWorkCreate = {
             title,
             text,
@@ -87,6 +89,7 @@ const FromCreateWork:FC = () => {
 
         }
         dispatch(postWork(work)).then(() => {
+            setIsLoading(false)
             handleClearState();
         })
     }
@@ -103,6 +106,7 @@ const FromCreateWork:FC = () => {
     }
 
     return (
+        <>
         <div className="add-post">
             {
                 img ? (
@@ -138,7 +142,7 @@ const FromCreateWork:FC = () => {
                     </div>
                 </div>
                 <div className="add-post__input">
-                    <input onChange={(e) => setUrl(e.currentTarget.value)} type="text" placeholder='Ссылка на работу' />
+                    <input onChange={(e) => setUrl(e.currentTarget.value)} type="text" value={url} placeholder='Ссылка на работу' />
                 </div>
                 <div className="add-post__text">
                     <MyEditor text={text} setText={(value: string) => setText(value)}/>
@@ -152,6 +156,14 @@ const FromCreateWork:FC = () => {
                 </div>
             </div>
         </div>
+        {
+            isLoading ? (
+                <div className="post-loading">
+                    <span className='loader'></span>
+                </div>
+            ) : null
+        }
+        </>
     );
 };
 

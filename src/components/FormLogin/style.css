@@ -14,7 +14,10 @@
 .login__content {
     margin-top: 60px;
     text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .login__form {
-    width: 100%;
+    flex: 0 1 500px;
 }

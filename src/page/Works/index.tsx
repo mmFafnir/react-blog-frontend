@@ -42,7 +42,6 @@ const Works:FC = () => {
         }
     }, [inView]);
     
-
     useEffect(() => {
         setPage(1)
         dispatch(fetchWorks({
@@ -54,7 +53,6 @@ const Works:FC = () => {
             setIsLoading(false)
         });
     }, [search])
-
 
     useEffect(() => {        
         dispatch(clearWorksState());
@@ -81,9 +79,15 @@ const Works:FC = () => {
                         </>
                     ) : (
                         <>
-                        {works.map(work => (
-                            <CardWork key={work._id} work={work} />
-                            ))}
+                        {
+                            works.length === 0 ? (
+                                <h3 className='empty' style={{marginTop: '40px'}}>У вас нет работ, добавьте первую </h3>
+                            ) : (
+                                works.map(work => (
+                                    <CardWork key={work._id} work={work} />
+                                ))
+                            )
+                        }
                         </>
                     )
                 }
@@ -99,6 +103,7 @@ const Works:FC = () => {
                         </div>
                     ) : <></>
                 }
+                
             </div>
         </div>
     );

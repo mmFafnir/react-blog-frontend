@@ -35,7 +35,8 @@ const PostsUser:FC<IProps> = ({user}) => {
         dispatch(fetchPost({
             limit: '5',
             page: String(page),
-            search: search 
+            search: search,
+            userId: user._id
         }));
     }, [user, page, search])
 

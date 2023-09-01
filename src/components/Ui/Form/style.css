@@ -1,6 +1,18 @@
 .form {
     width: 100%;
 }
+.style-form > div {
+    position: relative;
+    margin: 25px 0;
+}
+
+.error-notify{
+    width: 100%;
+    font-size: 14px;
+    text-align: left;
+    margin-top: 5px;
+    color: red;   
+}
 .form-input {
     width: 100%;
     background-color: transparent;
@@ -9,7 +21,6 @@
     -o-transition-duration: 0.3s;
     transition-duration: 0.3s;
     resize: none;
-    margin: 25px 0;
     padding-bottom: 10px;
     color: #f0f8ff;
     font-size: 14px;

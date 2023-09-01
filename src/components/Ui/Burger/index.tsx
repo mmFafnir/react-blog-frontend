@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from 'react';
 
-
-import './style.css'
 import { Link, useLocation } from 'react-router-dom';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
 import { selectAuth } from '../../../store/Slices/userAuthSlice/selectors';
+import { logout } from '../../../store/Slices/userAuthSlice';
+import { useDispatch } from 'react-redux';
 
 import img from '../../Person/img.jpg'
+import './style.css'
 
 const Burger = () => {
     const location = useLocation();
     const isAuth = useTypeSelector(selectAuth);
     const {data, status} = useTypeSelector(state => state.user);
+    const dispatch = useDispatch();
     
     const [isActive, setIsActive] = useState<boolean>(false);
 
+
+    const handleLogOut = () => {
+        dispatch(logout())
+    }
 
     useEffect(() => {
         setIsActive(false)
@@ -58,6 +64,9 @@ const Burger = () => {
                                         </li>
                                         <li className="aside__link"> 
                                             <Link to="/works" className={location.pathname === '/works' ? 'active' : ''}>Работы</Link> 
+                                        </li>
+                                        <li className="aside__link"> 
+                                            <button onClick={handleLogOut}  className={''}>Выйти</button> 
                                         </li>
                                     </>
                                 ) : (

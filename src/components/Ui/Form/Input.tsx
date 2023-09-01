@@ -6,25 +6,23 @@ interface IProps {
     value?: string
     name: string,
     type: string,
-    setState: (value:string) => void;
+    error?: string,
+    onChange?: (event: any) => void
 }
 
-const Input:FC<IProps> = ({placeholder, classes, name, setState, type, value}) => {
-    const [currentValue, setCurrentValue] = useState<string>(value ? value : '');
-
-    useEffect(() => {
-        setState(currentValue);
-    }, [currentValue])
-    
+const Input:FC<IProps> = ({placeholder, classes, name, type, value, onChange, error}) => {
     return (
-        <input 
-            onChange={(e) => setCurrentValue(e.target.value)} 
-            type={type} 
-            className={`form-input ${classes ? classes.join(' ') : ''}`} 
-            name={name} 
-            value={currentValue}
-            placeholder={placeholder} 
-        />
+        <div>
+            <input 
+                onChange={onChange} 
+                type={type} 
+                className={`form-input ${classes ? classes.join(' ') : ''}`} 
+                name={name} 
+                defaultValue={value}
+                placeholder={placeholder} 
+            />
+            {error ? <p className='error-notify'>{error}</p> : null}
+        </div>
     );
 };
 

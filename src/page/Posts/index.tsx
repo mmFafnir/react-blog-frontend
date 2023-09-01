@@ -34,6 +34,7 @@ const Posts = () => {
     }, [inView]);
     
     useEffect(() => {
+        console.log('work')
         setPage(1);
         setIstLoading(true);
         dispatch(fetchPost({

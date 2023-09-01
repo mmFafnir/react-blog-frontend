@@ -26,8 +26,6 @@ const FormUpdatePost:FC = () => {
 
     const refInputImg = useRef<HTMLInputElement>(null);
 
-    
-
     const [title, setTitle] = useState<string>(post.title);
     const [newTags, setNewTags] = useState<string[]>([]);
     const [text, setText] = useState<string>(post.text);
@@ -86,12 +84,14 @@ const FormUpdatePost:FC = () => {
                         </label>
                     </div>
                     <p>Название статьи:</p>
-                    <Input 
-                        placeholder='Название статьи' 
-                        name='title' 
+            
+                    <input 
+                        onChange={(e) => setTitle(e.target.value)} 
                         type='text'
-                        value={post.title} 
-                        setState={setTitle} 
+                        className={`form-input`} 
+                        name='title' 
+                        value={title}
+                        placeholder={'Название статьи'} 
                     />
                     <p>Описание статьи:</p>
                     <MyEditor text={text} setText={setText} />

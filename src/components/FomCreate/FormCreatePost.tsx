@@ -127,7 +127,7 @@ const FromCreatePost:FC = () => {
                     <div className="add-post__title">
                         <input 
                             name="post-text" 
-                            placeholder="Напишите что-нибудь" 
+                            placeholder="Заголовок статьи" 
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         />
@@ -139,7 +139,7 @@ const FromCreatePost:FC = () => {
                             <button className='add-post__file' onClick={modalOpenHandler}>
                                 <span className="fas fa-solid fa-tags fa-camera"></span>
                             </button>
-                            <button className="send_post" onClick={handlePostSave}>
+                            <button className={`send_post ${isLoading ? 'default' : ''}`} onClick={handlePostSave}>
                                 <span className="fas fa-location-arrow" aria-hidden="true"></span>
                             </button>
                         </div>

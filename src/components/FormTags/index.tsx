@@ -53,6 +53,10 @@ const FormTags:FC<IProps> = ({setState}) => {
     
     useEffect(() => {
         setCurrentTags(tags)
+
+        return () => {
+            setCurrentTags([])
+        }
     }, [])
 
     useEffect(() => {

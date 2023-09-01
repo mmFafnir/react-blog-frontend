@@ -17,6 +17,7 @@ import Textarea from '../Ui/Form/Textarea';
 
 import imgDefault from '../Person/img.jpg'
 import loadingGif from '../FomCreate/loading.gif';
+import useForm from '../../hooks/useForm';
 
 const FormUpdateUser:FC = () => {
 
@@ -26,8 +27,8 @@ const FormUpdateUser:FC = () => {
 
     const refInputImg = useRef<HTMLInputElement>(null);
 
-    const [fullName, setFullName] = useState<string>(user.fullName);
-    const [professions, setProfessions] = useState<string>(user.professions ? user.professions : '');
+    const defaultValues = {name: user.fullName, professions: user.professions ? user.professions : ''};
+    const {handleChange, values, errors, handleSubmit } = useForm(() => handleSubmitUser(), defaultValues);
     const [description, setDescription] = useState<string>(user.description ? user.description : '');
     
     const [img, setImg] = useState<string|null>(user.avatarUrl ? user.avatarUrl : null);
@@ -50,12 +51,12 @@ const FormUpdateUser:FC = () => {
         }
     }
 
-    const handleSubmit = () => {   
+    const handleSubmitUser = () => {   
         let newUser: TUserUpdate = {
-            fullName,
+            fullName: values.name,
         }
         if(description.trim().length > 0) newUser['description'] = description;
-        if(professions.trim().length > 0) newUser['professions'] = professions;     
+        if(values.professions.trim().length > 0) newUser['professions'] = values.professions;     
 
         if(img) newUser['avatarUrl'] = img;
 
@@ -96,18 +97,18 @@ const FormUpdateUser:FC = () => {
                     <p>Имя пользователя:</p>
                     <Input 
                         placeholder='Имя пользователя' 
-                        name='fullname' 
+                        name='name' 
                         type='text'
-                        value={fullName} 
-                        setState={setFullName} 
+                        value={user.fullName}
+                        onChange={handleChange}
                     />
                     <p>Проффесия:</p>
                     <Input 
                         placeholder='Проффесия' 
                         name='professions' 
                         type='text'
-                        value={professions} 
-                        setState={setProfessions} 
+                        value={user.professions} 
+                        onChange={handleChange} 
                     />
                     <p>О себе:</p>
                     <Textarea 

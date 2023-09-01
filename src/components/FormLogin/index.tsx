@@ -1,27 +1,27 @@
 import {FC, useState, memo} from 'react';
-import axios, { AxiosError } from 'axios';
 import { TUserLogin } from '../../types/TypeUser';
+import { useTypeDispatch } from '../../hooks/useTypeDispatch';
+import { postUserAuthLogin } from '../../store/Slices/userAuthSlice/asyncActions';
 
 import Form from '../Ui/Form';
 import Input from '../Ui/Form/Input';
 
 import './style.css';
-import { useTypeDispatch } from '../../hooks/useTypeDispatch';
-import { postUserAuthLogin } from '../../store/Slices/userAuthSlice/asyncActions';
+import useForm from '../../hooks/useForm';
 
 const FormLogin:FC = () => {
 
     const dispatch = useTypeDispatch();
 
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-
+    const {handleChange, values, errors, handleSubmit } = useForm(() => submitLoginHandler());
+    
     const submitLoginHandler = async () => {
         let user:TUserLogin = {
-            email: email,
-            password: password
+            email: values.email,
+            password: values.password
         };            
         dispatch(postUserAuthLogin(user))
+        
     }
 
     return (
@@ -31,9 +31,23 @@ const FormLogin:FC = () => {
                     <h2 className="title-page">Вход</h2>
                 </div>
                 <div className="login__content">
-                    <Form handleSubmit={submitLoginHandler} valueBtn='Войти' classes={['login__form ']}>
-                        <Input type='text' setState={setEmail} name='email' placeholder='Электронная почта' classes={['progile_mail']} />
-                        <Input type='password' setState={setPassword} name='password' placeholder='Пороль' classes={['password']} />
+                    <Form handleSubmit={handleSubmit} valueBtn='Войти' classes={['login__form ']}>
+                        <Input 
+                            onChange={handleChange} 
+                            type='text' 
+                            name='email' 
+                            placeholder='Электронная почта' 
+                            classes={['progile_mail']}
+                            error={errors.email} 
+                        />
+                        <Input 
+                            onChange={handleChange} 
+                            type='password' 
+                            name='password' 
+                            placeholder='Пороль' 
+                            classes={['password']}
+                            error={errors.password} 
+                        />
                     </Form>
                 </div>
             </div>
