@@ -23,7 +23,7 @@ const Auth: FC = () => {
                 login ? <FormLogin /> : <FormReg /> 
             }
             <div className="reg-link-body"> 
-                {login ? <button className="reg-link">востоновить</button> : null}
+                {/* {login ? <button className="reg-link">востоновить</button> : null} */}
                 <button 
                     onClick={() => setLogin(!login)} 
                     className="reg-link"
