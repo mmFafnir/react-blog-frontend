@@ -14,6 +14,7 @@ import './style.css';
 import { selectAuth } from '../../store/Slices/userAuthSlice/selectors';
 import { useNavigate } from 'react-router-dom';
 import { getDate } from '../../assets/scripts/getDate';
+import { clearComments } from '../../store/Slices/commentsSlice';
 
 interface IProps {
     id: string
@@ -107,7 +108,9 @@ const Comments:FC<IProps> = ({id}) => {
 
 
     useEffect(() => {
-
+        return () => {
+            dispatch(clearComments())
+        }
     }, [])
 
     return (
