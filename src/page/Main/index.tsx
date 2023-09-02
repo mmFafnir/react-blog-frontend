@@ -14,6 +14,7 @@ import Pagination from '../../components/Ui/Pagination';
 import SkeletonPost from '../../components/Post/skeleton';
 
 import './style.css';
+import Empty from '../../components/Ui/Empty';
 
 const Main:FC = () => { 
     
@@ -50,7 +51,7 @@ const Main:FC = () => {
                     ))
                 ) : (
                     posts.length === 0 ? (
-                        <h3 className='empty' style={{marginTop: '40px'}}>У вас нет своих статей (</h3>
+                        <Empty text='По статьям тут пусто...'/>
                     ) : (
                         posts.map(post => (
                             <Post key={post._id} post={post}/>

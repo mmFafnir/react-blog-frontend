@@ -21,7 +21,14 @@ const initialState:IStateComments = {
 const commentsSlice = createSlice({
     name: 'comments',
     initialState,
-    reducers: {},
+    reducers: {
+        clearComments: (state) => {
+            state.comments = [];
+            state.page = 0;
+            state.pages = 0;
+            state.status = Status.LOADING;
+        }
+    },
     extraReducers: (builder) => {
         // fetch
         builder.addCase(fetchComments.pending, (state) => {
@@ -72,5 +79,7 @@ const commentsSlice = createSlice({
     }
 })
 
+
+export const { clearComments } = commentsSlice.actions;
 
 export default commentsSlice.reducer;

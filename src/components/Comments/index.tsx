@@ -105,6 +105,11 @@ const Comments:FC<IProps> = ({id}) => {
         }))
     }, [id, limit])
 
+
+    useEffect(() => {
+
+    }, [])
+
     return (
         <div className='comments-block'>
             <div className="comment-write">

@@ -15,6 +15,7 @@ import { clearWorksState } from '../../store/Slices/worksSlice';
 import { Status } from '../../types/Status';
 import { selectUserId } from '../../store/Slices/userAuthSlice/selectors';
 import SkeletonWork from '../../components/CardWork/SkeletonWork';
+import Empty from '../../components/Ui/Empty';
 
 const Works:FC = () => {
 
@@ -81,7 +82,7 @@ const Works:FC = () => {
                         <>
                         {
                             works.length === 0 ? (
-                                <h3 className='empty' style={{marginTop: '40px'}}>У вас нет работ, добавьте первую </h3>
+                                <Empty text='По работам пусто...'/>
                             ) : (
                                 works.map(work => (
                                     <CardWork key={work._id} work={work} />

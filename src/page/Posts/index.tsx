@@ -8,6 +8,7 @@ import { clearPostsState } from '../../store/Slices/postsSlice';
 
 import Post from '../../components/Post';
 import SkeletonPost from '../../components/Post/skeleton';
+import Empty from '../../components/Ui/Empty';
 
 const Posts = () => {
     
@@ -34,7 +35,6 @@ const Posts = () => {
     }, [inView]);
     
     useEffect(() => {
-        console.log('work')
         setPage(1);
         setIstLoading(true);
         dispatch(fetchPost({
@@ -63,9 +63,18 @@ const Posts = () => {
                         <SkeletonPost key={num} />
                     ))
                 ) : (
-                    posts.map(post => (
-                        <Post key={post._id} post={post}/>
-                    ))
+                    <>
+                        {
+                            posts.length !== 0 ? (
+                                posts.map(post => (
+                                    <Post key={post._id} post={post}/>
+                                ))
+                            ) : (
+                                <Empty text='Пусто...'/>
+                            )
+
+                        }
+                    </>
                 )
             }
             {

@@ -25,6 +25,7 @@ const Burger = () => {
     useEffect(() => {
         setIsActive(false)
     }, [location])
+    
     return (
         <div className='burger'>
             <div className={`burger-icon ${isActive ? 'active' : ''}`} onClick={() => setIsActive(prev => !prev)}> 
