@@ -1,4 +1,26 @@
 
+.auth{
+}
+.auth__loading{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000a4;
+    left: 0;
+    top: 0;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.3s;
+}
+
+.auth__loading.show{
+    visibility: visible;
+    opacity: 1;
+}
 
 .reg-link-body {
     margin: 30px auto;
